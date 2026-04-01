@@ -44,6 +44,7 @@ const Layout = () => {
                 <Route path="/faq" element={<UnderConstruction />} />
                 <Route path="/privacy" element={<UnderConstruction />} />
                 <Route path="/terms" element={<UnderConstruction />} />
+                <Route path="*" element={<Home />} />
             </Routes>
             <Footer />
             <Chat />
