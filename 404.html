@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ВЕБЭКС</title>
+    <script>
+        // Перенаправление на index.html с сохранением маршрута
+        const pathSegments = location.pathname.split('/');
+        const repoName = '[webex]'; // Замените на имя репозитория
+        const repoIndex = pathSegments.indexOf(repoName);
+
+        if (repoIndex !== -1) {
+            const redirectPath = pathSegments.slice(repoIndex + 1).join('/');
+            if (redirectPath) {
+                localStorage.setItem('redirectPath', redirectPath);
+            }
+        }
+
+        window.location.replace('/' + (repoName ? repoName + '/' : ''));
+    </script>
+</head>
+<body>
+<p>Перенаправление...</p>
+</body>
+</html>
