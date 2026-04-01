@@ -64,7 +64,7 @@ const Layout = () => {
 
 function App() {
     return (
-        <Router>
+        <Router basename="/webex">
             <Layout/>
         </Router>
     )
