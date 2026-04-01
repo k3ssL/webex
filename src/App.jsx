@@ -1,4 +1,12 @@
-import {BrowserRouter as Router, Routes, Route, BrowserRouter, useLocation, Navigate} from 'react-router-dom';
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    BrowserRouter,
+    useLocation,
+    Navigate,
+    HashRouter
+} from 'react-router-dom';
 import Header from './components/Header/Header';
 import Chat from './components/Chat/Chat';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -65,9 +73,9 @@ const Layout = () => {
 
 function App() {
     return (
-        <Router basename="/webex">
+        <HashRouter basename="/webex">
             <Layout/>
-        </Router>
+        </HashRouter>
     )
 }
 
