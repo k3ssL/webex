@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Routes, Route, BrowserRouter, useLocation} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route, BrowserRouter, useLocation, Navigate} from 'react-router-dom';
 import Header from './components/Header/Header';
 import Chat from './components/Chat/Chat';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -55,6 +55,7 @@ const Layout = () => {
                 <Route path="/faq" element={<UnderConstruction />} />
                 <Route path="/privacy" element={<UnderConstruction />} />
                 <Route path="/terms" element={<UnderConstruction />} />
+                <Route path="*" element={<Navigate to={"/"} />} />
             </Routes>
             <Footer />
             <Chat />
