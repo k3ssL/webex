@@ -1,0 +1,537 @@
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--color-bg-primary);
+    border-bottom: 1px solid var(--color-border);
+    backdrop-filter: blur(10px);
+    background: rgba(var(--color-bg-primary-rgb), 0.8);
+}
+
+.header_content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+}
+
+.logo {
+    display: flex;
+    align-items: baseline;
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.logo_text {
+    background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.logo_dot {
+    color: var(--color-secondary);
+    font-size: 2rem;
+}
+
+.nav {
+    display: flex;
+    gap: var(--spacing-8);
+}
+
+.nav_link {
+    font-weight: 500;
+    position: relative;
+    padding: var(--spacing-2) 0;
+    transition: color var(--transition-fast);
+}
+
+.nav_link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-secondary);
+    transition: width var(--transition-base);
+}
+
+.nav_link:hover::after,
+.nav_link.active::after {
+    width: 100%;
+}
+
+.nav_link:hover {
+    color: var(--color-secondary);
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+}
+
+.chat_btn,
+.cart_btn,
+.profile_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    background: var(--color-bg-secondary);
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+.chat_btn:hover,
+.cart_btn:hover {
+    background: var(--color-secondary);
+    color: white;
+    transform: scale(1.05);
+}
+
+.cart_badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: var(--color-secondary);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 600;
+    min-width: 18px;
+    height: 18px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+}
+
+.login_btn,
+.register_btn,
+.logout_btn {
+    padding: var(--spacing-2) var(--spacing-4);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    transition: all var(--transition-fast);
+}
+
+.login_btn {
+    color: var(--color-text-primary);
+}
+
+.login_btn:hover {
+    color: var(--color-secondary);
+}
+
+.register_btn {
+    background: var(--color-secondary);
+    color: white;
+}
+
+.register_btn:hover {
+    background: var(--color-secondary-dark);
+    transform: translateY(-2px);
+}
+
+.logout_btn {
+    background: transparent;
+    color: var(--color-text-secondary);
+}
+
+.logout_btn:hover {
+    color: var(--color-error);
+}
+
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+    }
+
+    .header_content {
+        height: 60px;
+    }
+
+    .login_btn,
+    .register_btn,
+    .logout_btn {
+        display: none;
+    }
+}
+
+/* Бургер-меню кнопка */
+.burger_btn {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: var(--spacing-2);
+    z-index: 101;
+}
+
+.burger_line {
+    width: 100%;
+    height: 2px;
+    background: var(--color-text-primary);
+    border-radius: var(--radius-full);
+    transition: all var(--transition-base);
+}
+
+.burger_active .burger_line:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.burger_active .burger_line:nth-child(2) {
+    opacity: 0;
+}
+
+.burger_active .burger_line:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Мобильное меню (оверлей) */
+.mobile_menu_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: all var(--transition-base);
+}
+
+.mobile_menu_overlay.mobile_menu_open {
+    visibility: visible;
+    opacity: 1;
+}
+
+.mobile_menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    max-width: 380px;
+    height: 100vh;
+    background: var(--color-bg-primary);
+    box-shadow: var(--shadow-xl);
+    transition: right var(--transition-base);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.mobile_menu_open .mobile_menu {
+    right: 0;
+}
+
+.mobile_menu_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-6);
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-bg-primary);
+}
+
+.mobile_menu_logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.mobile_menu_dot {
+    color: var(--color-secondary);
+    font-size: 1.8rem;
+    -webkit-text-fill-color: var(--color-secondary);
+}
+
+.mobile_menu_close {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    background: var(--color-bg-secondary);
+    color: var(--color-text-secondary);
+    transition: all var(--transition-fast);
+}
+
+.mobile_menu_close:hover {
+    background: var(--color-error);
+    color: white;
+}
+
+/* Мобильная навигация */
+.mobile_nav {
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-4);
+    gap: var(--spacing-2);
+}
+
+.mobile_nav_link {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    padding: var(--spacing-3) var(--spacing-4);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    transition: all var(--transition-fast);
+}
+
+.mobile_nav_icon {
+    font-size: 1.2rem;
+}
+
+.mobile_nav_link:hover,
+.mobile_nav_link.active {
+    background: var(--color-bg-secondary);
+    color: var(--color-secondary);
+}
+
+/* Мобильная секция пользователя */
+.mobile_user_section {
+    margin-top: auto;
+    padding: var(--spacing-4);
+    border-top: 1px solid var(--color-border);
+}
+
+.mobile_user_info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    padding: var(--spacing-4);
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-4);
+}
+
+.mobile_avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+}
+
+.mobile_user_name {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: var(--spacing-1);
+}
+
+.mobile_user_email {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+}
+
+/* Мобильные действия */
+.mobile_actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+}
+
+.mobile_action_btn {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    padding: var(--spacing-3) var(--spacing-4);
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    background: var(--color-bg-secondary);
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+.mobile_action_btn:hover {
+    background: var(--color-secondary);
+    color: white;
+}
+
+.mobile_badge {
+    position: absolute;
+    right: var(--spacing-4);
+    background: var(--color-secondary);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 600;
+    min-width: 20px;
+    height: 20px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+}
+
+.mobile_action_btn:hover .mobile_badge {
+    background: white;
+    color: var(--color-secondary);
+}
+
+.mobile_logout_btn {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    padding: var(--spacing-3) var(--spacing-4);
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-error);
+    background: rgba(239, 68, 68, 0.1);
+    transition: all var(--transition-fast);
+    width: 100%;
+    text-align: left;
+}
+
+.mobile_logout_btn:hover {
+    background: var(--color-error);
+    color: white;
+}
+
+/* Мобильная секция авторизации */
+.mobile_auth_section {
+    margin-top: auto;
+    padding: var(--spacing-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+    border-top: 1px solid var(--color-border);
+}
+
+.mobile_login_btn,
+.mobile_register_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-3);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    transition: all var(--transition-fast);
+}
+
+.mobile_login_btn {
+    background: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+}
+
+.mobile_login_btn:hover {
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+}
+
+.mobile_register_btn {
+    background: var(--color-secondary);
+    color: white;
+}
+
+.mobile_register_btn:hover {
+    background: var(--color-secondary-dark);
+    transform: translateY(-2px);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .burger_btn {
+        display: flex;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .login_btn,
+    .register_btn,
+    .logout_btn {
+        display: none;
+    }
+
+    .header_content {
+        height: 60px;
+    }
+
+    .chat_btn,
+    .cart_btn,
+    .profile_btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    .avatar {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .mobile_menu {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .mobile_nav_link {
+        padding: var(--spacing-4);
+    }
+
+    .mobile_action_btn,
+    .mobile_logout_btn {
+        padding: var(--spacing-4);
+    }
+}
+
+/* Анимация для мобильного меню */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.mobile_menu_open .mobile_menu {
+    animation: slideIn 0.3s ease-out;
+}
+
+/* Стили для скроллбара в мобильном меню */
+.mobile_menu::-webkit-scrollbar {
+    width: 4px;
+}
+
+.mobile_menu::-webkit-scrollbar-track {
+    background: var(--color-bg-secondary);
+}
+
+.mobile_menu::-webkit-scrollbar-thumb {
+    background: var(--color-secondary);
+    border-radius: var(--radius-full);
+}
