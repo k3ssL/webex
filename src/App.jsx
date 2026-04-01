@@ -20,6 +20,17 @@ const Layout = () => {
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [location.pathname]);
+
+    useEffect(() => {
+        const redirectPath = localStorage.getItem('redirectPath');
+        if (redirectPath) {
+            localStorage.removeItem('redirectPath');
+            // Используем setTimeout, чтобы избежать конфликтов с Router
+            setTimeout(() => {
+                window.location.replace(`/${redirectPath}`);
+            }, 100);
+        }
+    }, []);
     return (
         <>
             <Header />
@@ -44,7 +55,6 @@ const Layout = () => {
                 <Route path="/faq" element={<UnderConstruction />} />
                 <Route path="/privacy" element={<UnderConstruction />} />
                 <Route path="/terms" element={<UnderConstruction />} />
-                <Route path="*" element={<Home />} />
             </Routes>
             <Footer />
             <Chat />
