@@ -73,7 +73,7 @@ const Layout = () => {
 
 function App() {
     return (
-        <HashRouter basename="/webex">
+        <HashRouter>
             <Layout/>
         </HashRouter>
     )
