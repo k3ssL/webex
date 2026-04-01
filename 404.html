@@ -5,18 +5,21 @@
     <title>ВЕБЭКС</title>
     <script>
         // Перенаправление на index.html с сохранением маршрута
-        const pathSegments = location.pathname.split('/');
-        const repoName = '[webex]'; // Замените на имя репозитория
-        const repoIndex = pathSegments.indexOf(repoName);
+        (function() {
+            const path = window.location.pathname;
+            const repoName = 'webex';
 
-        if (repoIndex !== -1) {
-            const redirectPath = pathSegments.slice(repoIndex + 1).join('/');
-            if (redirectPath) {
-                localStorage.setItem('redirectPath', redirectPath);
+            // Получаем путь после имени репозитория
+            const pathAfterRepo = path.split(`/${repoName}/`)[1];
+
+            if (pathAfterRepo && pathAfterRepo !== 'index.html') {
+                // Сохраняем путь для восстановления после загрузки
+                localStorage.setItem('redirectPath', pathAfterRepo);
             }
-        }
 
-        window.location.replace('/' + (repoName ? repoName + '/' : ''));
+            // Перенаправляем на корень репозитория
+            window.location.replace(`/${repoName}/`);
+        })();
     </script>
 </head>
 <body>
