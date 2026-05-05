@@ -22,8 +22,8 @@ const About = () => {
         {
             id: 1,
             name: 'Александра Волкова',
-            position: 'Основатель & CEO',
-            bio: 'Более 10 лет в индустрии моды. Визионер, создающий пространство для самовыражения.',
+            position: 'Основатель & Генеральный директор',
+            bio: 'Более 15 лет в сфере безопасности. Бывший руководитель отдела безопасности крупного холдинга. Эксперт по комплексным системам защиты.',
             image: woman,
             social: {
                 linkedin: '#',
@@ -33,8 +33,8 @@ const About = () => {
         {
             id: 2,
             name: 'Михаил Карпов',
-            position: 'Креативный директор',
-            bio: 'Отвечает за визуальную идентичность и курирует дизайн-проекты.',
+            position: 'Технический директор',
+            bio: 'Инженер-проектировщик с 12-летним стажем. Сертифицированный специалист Hikvision, Ajax, Dahua. Разработал более 500 проектов.',
             image: man,
             social: {
                 linkedin: '#',
@@ -44,8 +44,8 @@ const About = () => {
         {
             id: 3,
             name: 'Елена Соколова',
-            position: 'Head of Product',
-            bio: 'Эксперт по качеству и развитию ассортимента.',
+            position: 'Руководитель отдела продаж',
+            bio: 'Помогает подобрать оптимальное решение под любой бюджет. Знает всё о каждом устройстве в каталоге.',
             image: woman2,
             social: {
                 linkedin: '#',
@@ -55,8 +55,8 @@ const About = () => {
         {
             id: 4,
             name: 'Дмитрий Белов',
-            position: 'Технический директор',
-            bio: 'Создает технологическую основу для безупречного опыта покупок.',
+            position: 'Руководитель монтажного отдела',
+            bio: 'Организует установку систем любой сложности. Под его контролем работает 8 бригад сертифицированных монтажников.',
             image: man2,
             social: {
                 linkedin: '#',
@@ -67,29 +67,49 @@ const About = () => {
 
     const values = [
         {
-            title: 'Качество превыше всего',
-            description: 'Мы тщательно отбираем каждый продукт, чтобы вы получали только лучшее.'
+            title: 'Надёжность',
+            description: 'Используем только сертифицированное оборудование от мировых производителей с гарантией до 5 лет.'
         },
         {
-            title: 'Устойчивое развитие',
-            description: 'Поддерживаем ответственное производство и экологичные материалы.'
+            title: 'Точность',
+            description: 'Проектируем системы с учётом всех уязвимостей объекта. Ни одного слепого пятна.'
         },
         {
-            title: 'Индивидуальный подход',
-            description: 'Каждый клиент уникален, и мы создаем персональный опыт для каждого.'
+            title: 'Скорость реакции',
+            description: 'Наша служба мониторинга реагирует на тревогу за 0.2 секунды. 24/7 без выходных.'
         },
         {
-            title: 'Инновации',
-            description: 'Постоянно внедряем новые технологии для вашего комфорта.'
+            title: 'Конфиденциальность',
+            description: 'Все данные хранятся на защищённых серверах в РФ. Соответствие 152-ФЗ и GDPR.'
         }
     ];
 
     const milestones = [
-        { year: '2020', title: 'Основание ВЕБЭКС', description: 'Начало пути с идеи создать уникальное пространство для ценителей стиля.' },
-        { year: '2021', title: 'Первая коллекция', description: 'Запуск эксклюзивной линейки одежды и аксессуаров.' },
-        { year: '2022', title: 'Международное признание', description: 'Выход на международный рынок и сотрудничество с мировыми брендами.' },
-        { year: '2023', title: 'Инновации в технологиях', description: 'Внедрение AI-рекомендаций и виртуальной примерки.' },
-        { year: '2024', title: 'ВЕБЭКС 2.0', description: 'Новый этап развития и расширение экосистемы.' }
+        {
+            year: '2010',
+            title: 'Основание компании',
+            description: 'Начали с установки охранных сигнализаций в квартиры. Первый офис — 15 м² и два сотрудника.'
+        },
+        {
+            year: '2013',
+            title: 'Выход на рынок видеонаблюдения',
+            description: 'Стали официальными партнёрами Hikvision. Запустили направление IP-видеонаблюдения.'
+        },
+        {
+            year: '2016',
+            title: 'Собственный мониторинговый центр',
+            description: 'Открыли диспетчерский центр 24/7. Начали предоставлять услуги пультовой охраны.'
+        },
+        {
+            year: '2019',
+            title: 'Комплексные решения для бизнеса',
+            description: 'Запустили направление СКУД, пожарной сигнализации и систем контроля доступа.'
+        },
+        {
+            year: '2022',
+            title: 'Облачные технологии',
+            description: 'Внедрили облачное видеонаблюдение и удалённое управление системами через приложение.'
+        },
     ];
 
     return (
@@ -106,12 +126,12 @@ const About = () => {
                     <div className={styles.hero_content}>
                         <span className={styles.hero_badge}>История ВЕБЭКС</span>
                         <h1 className={styles.hero_title}>
-                            Создавая будущее
-                            <span className={styles.hero_accent}> моды</span>
+                            Ваша безопасность —
+                            <span className={styles.hero_accent}>наша профессия</span>
                         </h1>
                         <p className={styles.hero_description}>
-                            Мы верим, что одежда — это больше, чем просто ткань. Это способ самовыражения,
-                            инструмент для рассказа своей истории и отражение внутреннего мира.
+                            С 2010 года проектируем, устанавливаем и обслуживаем системы безопасности.
+                            Более 10 000 объектов под защитой, 98% довольных клиентов и штат из 45 сертифицированных специалистов.
                         </p>
                     </div>
                 </div>
@@ -125,23 +145,24 @@ const About = () => {
                 <div className="container">
                     <div className={`${styles.mission_content} ${missionInView ? styles.animate : ''}`}>
                         <div className={styles.mission_text}>
-                            <span className={styles.section_tag}>Наша философия</span>
+                            <span className={styles.section_tag}>Наша мисси</span>
                             <h2 className={styles.section_title}>
-                                Миссия — вдохновлять
-                                <span className={styles.title_accent}> и создавать ценность</span>
+                                Делаем безопасность
+                                <span className={styles.title_accent}> доступной каждому</span>
                             </h2>
                             <p className={styles.mission_description}>
-                                ВЕБЭКС родилась из желания изменить подход к онлайн-шопингу. Мы создали пространство,
-                                где минимализм встречается с элегантностью, а технологии служат человеческому комфорту.
+                                Мы верим, что качественная система безопасности — не роскошь, а необходимость.
+                                Наша задача — предложить решение под любой бюджет: от квартиры-студии до складского комплекса.
+                                Без сложных терминов, скрытых платежей и непонятных схем.
                             </p>
                             <div className={styles.mission_stats}>
                                 <div className={styles.stat_item}>
                                     <span className={styles.stat_number}>500+</span>
-                                    <span className={styles.stat_label}>Брендов-партнеров</span>
+                                    <span className={styles.stat_label}>Моделей оборудования</span>
                                 </div>
                                 <div className={styles.stat_item}>
-                                    <span className={styles.stat_number}>50K+</span>
-                                    <span className={styles.stat_label}>Довольных клиентов</span>
+                                    <span className={styles.stat_number}>98%</span>
+                                    <span className={styles.stat_label}>Положительных отзывов</span>
                                 </div>
                                 <div className={styles.stat_item}>
                                     <span className={styles.stat_number}>24/7</span>
@@ -159,8 +180,8 @@ const About = () => {
                     <div className={styles.values_header}>
                         <span className={styles.section_tag}>Наши ценности</span>
                         <h2 className={styles.section_title}>
-                            Принципы, которые нас
-                            <span className={styles.title_accent}> объединяют</span>
+                            Принципы, на которых
+                            <span className={styles.title_accent}> строится защита</span>
                         </h2>
                     </div>
                     <div className={styles.values_grid}>
@@ -206,11 +227,11 @@ const About = () => {
                     <div className={styles.team_header}>
                         <span className={styles.section_tag}>Команда мечты</span>
                         <h2 className={styles.section_title}>
-                            Люди, создающие
-                            <span className={styles.title_accent}> магию ВЕБЭКС</span>
+                            Профессионалы, которые
+                            <span className={styles.title_accent}>  вас защищают</span>
                         </h2>
                         <p className={styles.team_subtitle}>
-                            Талантливые профессионалы, объединенные общей страстью к моде и инновациям
+                            Сертифицированные инженеры, проектировщики и монтажники с опытом от 5 лет
                         </p>
                     </div>
                     <div className={styles.team_grid}>
@@ -249,32 +270,32 @@ const About = () => {
                         <div className={styles.advantages_text}>
                             <span className={styles.section_tag}>Почему выбирают нас</span>
                             <h2 className={styles.section_title}>
-                                Преимущества работы
-                                <span className={styles.title_accent}> с ВЕБЭКС</span>
+                                Полный цикл
+                                <span className={styles.title_accent}> безопасности</span>
                             </h2>
                             <div className={styles.advantages_list}>
                                 <div className={styles.advantage_item}>
                                     <div>
-                                        <h4>Эксклюзивные коллекции</h4>
-                                        <p>Только проверенные бренды и лимитированные серии</p>
+                                        <h4>Проектирование</h4>
+                                        <p>Выезд инженера, анализ объекта, подбор оборудования и создание проекта бесплатно</p>
                                     </div>
                                 </div>
                                 <div className={styles.advantage_item}>
                                     <div>
-                                        <h4>Быстрая доставка</h4>
-                                        <p>Бесплатная доставка по всей России от 5000 ₽</p>
+                                        <h4>Доставка по РФ</h4>
+                                        <p>Бесплатная доставка при заказе от 10 000 ₽. Экспресс-доставка за 2 часа по городу</p>
                                     </div>
                                 </div>
                                 <div className={styles.advantage_item}>
                                     <div>
-                                        <h4>Легкий возврат</h4>
-                                        <p>14 дней на возврат без лишних вопросов</p>
+                                        <h4>Монтаж за 1 день</h4>
+                                        <p>8 сертифицированных бригад. Установка от 4 камер с настройкой за 4-6 часов</p>
                                     </div>
                                 </div>
                                 <div className={styles.advantage_item}>
                                     <div>
-                                        <h4>Безопасная оплата</h4>
-                                        <p>Защищенные платежи и различные способы оплаты</p>
+                                        <h4>Обучение</h4>
+                                        <p>Научим пользоваться системой, настроим приложение на смартфоне. Ответим на все вопросы</p>
                                     </div>
                                 </div>
                             </div>
@@ -288,11 +309,11 @@ const About = () => {
                 <div className="container">
                     <div className={styles.cta_content}>
                         <h2 className={styles.cta_title}>
-                            Готовы стать частью
-                            <span className={styles.cta_accent}> истории ВЕБЭКС?</span>
+                            Готовы обезопасить
+                            <span className={styles.cta_accent}> свой объект?</span>
                         </h2>
                         <p className={styles.cta_description}>
-                            Присоединяйтесь к сообществу ценителей стиля и качества
+                            Присоединяйтесь к сообществу ценителей надежности и безопасности
                         </p>
                         <div className={styles.cta_buttons}>
                             <Link to={'/'} className={styles.cta_primary}>
