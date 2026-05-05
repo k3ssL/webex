@@ -145,7 +145,7 @@ const About = () => {
                 <div className="container">
                     <div className={`${styles.mission_content} ${missionInView ? styles.animate : ''}`}>
                         <div className={styles.mission_text}>
-                            <span className={styles.section_tag}>Наша мисси</span>
+                            <span className={styles.section_tag}>Наша миссия</span>
                             <h2 className={styles.section_title}>
                                 Делаем безопасность
                                 <span className={styles.title_accent}> доступной каждому</span>
