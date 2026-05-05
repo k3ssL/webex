@@ -319,9 +319,9 @@ const Catalog = () => {
                 </div>
                 <div className="container">
                     <div className={styles.hero_content}>
-                        <h1 className={styles.hero_title}>Каталог</h1>
+                        <h1 className={styles.hero_title}>Каталог оборудования</h1>
                         <p className={styles.hero_description}>
-                            Исследуйте нашу коллекцию премиальных товаров
+                            Профессиональное оборудование для систем безопасности. Только проверенные бренды с гарантией 3 года
                         </p>
                     </div>
                 </div>
