@@ -1,38 +1,50 @@
 :root {
     /* Основные цвета */
-    --color-primary: #000000;
-    --color-secondary: #e31b23;
-    --color-secondary-dark: #b8151c;
-    --color-secondary-light: #ff4d55;
+    --color-primary: #0a0a0a;
+    --color-secondary: #1a56db;        /* Технологичный синий */
+    --color-secondary-dark: #0e3a8a;    /* Темно-синий для hover */
+    --color-secondary-light: #3b82f6;   /* Светло-синий для акцентов */
+
+    --color-accent: #10b981;            /* Изумрудный - цвет безопасности */
+    --color-accent-dark: #059669;
+    --color-accent-light: #34d399;
 
     /* Фоновые цвета */
     --color-bg-primary: #ffffff;
-    --color-bg-secondary: #f5f5f5;
-    --color-bg-dark: #0a0a0a;
+    --color-bg-secondary: #f8fafc;      /* Светло-сизый для современного вида */
+    --color-bg-dark: #0f172a;           /* Темно-синий для футера/хедера */
     --color-bg-card: #ffffff;
+    --color-bg-elevated: #f1f5f9;       /* Для карточек и панелей */
 
     /* Текст */
-    --color-text-primary: #1a1a1a;
-    --color-text-secondary: #666666;
-    --color-text-light: #999999;
+    --color-text-primary: #0f172a;      /* Темно-синий для основного текста */
+    --color-text-secondary: #475569;    /* Серо-синий для второстепенного */
+    --color-text-light: #94a3b8;        /* Светло-серый */
     --color-text-inverse: #ffffff;
 
     /* Границы */
-    --color-border: #e5e5e5;
-    --color-border-focus: #e31b23;
-    --color-border-dark: #333333;
+    --color-border: #e2e8f0;
+    --color-border-focus: #1a56db;
+    --color-border-dark: #334155;
 
     /* Статусы */
     --color-success: #10b981;
     --color-error: #ef4444;
     --color-warning: #f59e0b;
+    --color-info: #3b82f6;
+
+    /* Специфичные для безопасности */
+    --color-danger: #dc2626;            /* Для критических уведомлений */
+    --color-protected: #10b981;         /* Для статуса "под защитой" */
+    --color-offline: #6b7280;           /* Для офлайн устройств */
+    --color-online: #10b981;            /* Для онлайн устройств */
 
     /* Тени */
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
     --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
-    --shadow-hover: 0 20px 35px -8px rgba(227, 27, 35, 0.15);
+    --shadow-blue: 0 10px 25px -5px rgba(26, 86, 219, 0.15);
 
     /* Анимации */
     --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
