@@ -118,8 +118,7 @@ const Footer = () => {
                             <span className={styles.logo_dot}>.</span>
                         </Link>
                         <p className={styles.footer_description}>
-                            Премиальный маркетплейс, где минимализм встречается с элегантностью.
-                            Мы создаем пространство для тех, кто ценит качество и стиль.
+                            Профессиональные системы безопасности для дома и бизнеса. Надёжное оборудование, умные технологии и круглосуточная защита того, что вам дорого.
                         </p>
                         <div className={styles.social_links}>
                             {socialLinks.map((social, index) => (
