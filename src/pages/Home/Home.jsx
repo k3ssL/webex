@@ -72,9 +72,9 @@ const Home = () => {
             <section className={styles.featured}>
                 <div className="container">
                     <div className={styles.section_header}>
-                        <h2 className={styles.section_title}>Популярные товары</h2>
+                        <h2 className={styles.section_title}>Популярные решения</h2>
                         <p className={styles.section_subtitle}>
-                            Эксклюзивные предметы, отобранные специально для вас
+                            Надёжное оборудование для вашей безопасности
                         </p>
                     </div>
 
