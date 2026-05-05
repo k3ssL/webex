@@ -90,14 +90,14 @@ const Home = () => {
                 <div className="container">
                     <div className={styles.banner_content}>
                         <div className={styles.banner_text}>
-                            <span className={styles.banner_badge}>Limited Edition</span>
-                            <h2 className={styles.banner_title}>Зимняя коллекция 2026</h2>
+                            <span className={styles.banner_badge}>Акция месяца</span>
+                            <h2 className={styles.banner_title}>Установка системы безопасности «под ключ»</h2>
                             <p className={styles.banner_description}>
-                                Эксклюзивные модели, созданные в единственном экземпляре.
-                                Только до конца сезона.
+                                Полный комплекс: проектирование, оборудование, монтаж и настройка.
+                                Настройка удалённого доступа и обучение пользованию — в подарок.
                             </p>
                             <Link to={'/catalog'} className={styles.banner_btn}>
-                                Смотреть коллекцию
+                                Смотреть оборудование
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                     <path d="M5 12h14M12 5l7 7-7 7"/>
                                 </svg>
