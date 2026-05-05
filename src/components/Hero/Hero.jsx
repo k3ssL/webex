@@ -17,20 +17,18 @@ const Hero = () => {
 
             <div className={`container ${styles.hero_content}`}>
                 <div className={`${styles.text_container} ${inView ? styles.animate_in : ''}`}>
-                    <span className={styles.badge}>Эксклюзивная коллекция 2026</span>
+                    <span className={styles.badge}>Полная безопасность под контролем</span>
                     <h1 className={styles.title}>
-                        Открой мир
-                        <span className={styles.title_accent}> премиального</span>
-                        <br />
-                        стиля
+                        Ваша безопасность —
+                        <span className={styles.title_accent}>  наша главная цель</span>
                     </h1>
                     <p className={styles.description}>
-                        ВЕБЭКС — это пространство, где минимализм встречается с элегантностью.
-                        Ограниченные коллекции, созданные для тех, кто ценит качество и дизайн.
+                        Современные системы видеонаблюдения, умные домофоны и охранные комплексы
+                        для защиты вашего дома, офиса и бизнеса. Профессиональная установка и круглосуточная поддержка.
                     </p>
                     <div className={styles.buttons}>
                         <Link to={'/catalog'} className={styles.primary_btn}>
-                            Исследовать
+                            Выбрать оборудование
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                 <path d="M5 12h14M12 5l7 7-7 7"/>
                             </svg>
@@ -39,13 +37,13 @@ const Hero = () => {
 
                     <div className={styles.stats}>
                         <div className={styles.stat_item}>
-                            <span className={styles.stat_number}>500+</span>
-                            <span className={styles.stat_label}>Брендов</span>
+                            <span className={styles.stat_number}>10k+</span>
+                            <span className={styles.stat_label}>Установленных систем</span>
                         </div>
                         <div className={styles.stat_divider}></div>
                         <div className={styles.stat_item}>
-                            <span className={styles.stat_number}>50k+</span>
-                            <span className={styles.stat_label}>Клиентов</span>
+                            <span className={styles.stat_number}>98%</span>
+                        <span className={styles.stat_label}>Довольных клиентов</span>
                         </div>
                         <div className={styles.stat_divider}></div>
                         <div className={styles.stat_item}>
