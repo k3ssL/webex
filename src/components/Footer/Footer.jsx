@@ -196,26 +196,6 @@ const Footer = () => {
                     <div className={styles.copyright}>
                         <p>© {currentYear} ВЕБЭКС. Все права защищены.</p>
                     </div>
-                    <div className={styles.payment_methods}>
-                        <span className={styles.payment_label}>Принимаем к оплате:</span>
-                        <div className={styles.payment_icons}>
-                            <svg width="38" height="24" viewBox="0 0 38 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="38" height="24" rx="4" fill="#F3F4F6"/>
-                                <path d="M10 8H28V16H10V8Z" fill="#1F2937"/>
-                                <circle cx="19" cy="12" r="3" fill="#E31B23"/>
-                            </svg>
-                            <svg width="38" height="24" viewBox="0 0 38 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="38" height="24" rx="4" fill="#F3F4F6"/>
-                                <path d="M8 12H30" stroke="#1F2937" strokeWidth="1.5"/>
-                                <circle cx="19" cy="12" r="3" fill="#E31B23"/>
-                            </svg>
-                            <svg width="38" height="24" viewBox="0 0 38 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="38" height="24" rx="4" fill="#F3F4F6"/>
-                                <path d="M12 8H26V16H12V8Z" fill="#1F2937"/>
-                                <path d="M19 8L19 16" stroke="white" strokeWidth="1.5"/>
-                            </svg>
-                        </div>
-                    </div>
                 </div>
             </div>
         </footer>
