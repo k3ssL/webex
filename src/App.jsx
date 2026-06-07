@@ -19,6 +19,7 @@ import Catalog from "./pages/Catalog/Catalog";
 import Footer from "./components/Footer/Footer";
 import UnderConstruction from "./pages/UnderConstruction/UnderConstruction";
 import {useEffect} from "react";
+import Register from "./pages/Register/Register.jsx";
 
 const AppRouter = () => {
     const location = useLocation()
@@ -54,7 +55,7 @@ const AppRouter = () => {
                         </ProtectedRoute>
                     }
                 />
-                <Route path="/register" element={<Login />} />
+                <Route path="/register" element={<Register />} />
                 <Route path="/delivery" element={<UnderConstruction />} />
                 <Route path="/returns" element={<UnderConstruction />} />
                 <Route path="/faq" element={<UnderConstruction />} />

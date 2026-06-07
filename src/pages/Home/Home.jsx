@@ -2,56 +2,56 @@ import Hero from '../../components/Hero/Hero';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import styles from './Home.module.css';
 import {Link} from "react-router-dom";
-import sensor from '../../assets/images/sensor.webp';
-import domofon from '../../assets/images/domofon.png';
-import fireSystem from '../../assets/images/fireSystem.jpg';
-import smartLock from '../../assets/images/smartLock.jpg';
-import glasses from '../../assets/images/glasses.jpg'
 import collection from '../../assets/images/collection.jpg'
-import videorecorder from "../../assets/images/videodecoder.webp";
+import nvr_1_10 from "../../assets/images/nvr_1_10.png";
+import nvr_1_16_8p from "../../assets/images/nvr_1_16(8p).png";
+import hvr_04052 from "../../assets/images/hvr_04052.png";
+import poe_inj from "../../assets/images/PoE-инжектор (пассивный).webp";
+import ip_202_2_8FPM from "../../assets/images/ip-202_FPM-2-8.png";
 
 const products = [
     {
         id: 1,
-        name: 'Датчик движения Bosch',
-        category: 'Датчики',
-        price: 2490,
-        oldPrice: 4990,
-        image: sensor,
+        name: 'NVR-1/10',
+        category: 'IP-Видеорегистратор',
+        price: 3350,
+        image: nvr_1_10,
+        inStock: false,
         isNew: true
     },
     {
-        id: 2,
-        name: 'IP-видеодомофон Hikvision',
-        category: 'Домофоны',
-        price: 15990,
-        image: domofon,
+        id: 8,
+        name: 'NVR-1/16 (8P)',
+        category: 'IP-Видеорегистратор с Poe',
+        price: 8525,
+        image: nvr_1_16_8p,
+        inStock: true,
         isNew: true
     },
     {
-        id: 3,
-        name: 'Пожарная сигнализация Болид',
-        category: 'Пожарная безопасность',
-        price: 59990,
-        oldPrice: 89990,
-        image: fireSystem,
-        discount: 17
+        id: 10,
+        name: 'HVR-0405',
+        category: 'AHD Видеорегистратор',
+        price: 5803,
+        image: hvr_04052,
+        inStock: true,
     },
     {
-        id: 4,
-        name: 'Умный замок Samsung',
-        category: 'Контроль доступа',
-        price: 25990,
-        image: smartLock,
+        id: 24,
+        name: 'PoE-инжектор (пассивный)',
+        category: 'Сетевое оборудование',
+        price: 668,
+        image: poe_inj,
+        inStock: true,
         isNew: true
     },
     {
-        id: 5,
-        name: 'Видеорегистратор 16 каналов',
-        category: 'Видеонаблюдение',
-        price: 42990,
-        oldPrice: 89900,
-        image: videorecorder,
+        id: 14,
+        name: 'IP-202 FPM (2.8) 1H',
+        category: 'IP Камеры 2 Мегапикселя',
+        price: 1463,
+        image: ip_202_2_8FPM,
+        inStock: true,
         discount: 33
     },
 ];
