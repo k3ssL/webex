@@ -2,226 +2,452 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import styles from './Catalog.module.css';
-import domofon from '../../assets/images/domofon.png';
-import camera from '../../assets/images/camera.webp';
-import signalization from '../../assets/images/signalization.jpg';
-import accessControl from '../../assets/images/accessControl.webp';
-import fireSystem from '../../assets/images/fireSystem.jpg';
-import sensor from '../../assets/images/sensor.webp';
-import videorecorder from '../../assets/images/videodecoder.webp';
-import monitor from '../../assets/images/monitor.png';
-import powerSupply from '../../assets/images/powerSupply.webp';
-import cable from '../../assets/images/cable.jpg';
-import smartLock from '../../assets/images/smartLock.jpg';
-import intercom from '../../assets/images/intercom.jpg';
+import nvr_1_10 from "../../assets/images/nvr_1_10.png"
+import nvr_1_16 from "../../assets/images/nvr_1_16.png"
+import nvr_1_36 from "../../assets/images/nvr-1_36.png"
+import nvr_1_10_4p from "../../assets/images/nvr_1_10(4p).png"
+import nvr_1_16_8p from "../../assets/images/nvr_1_16(8p).png"
+import nvr_2_36 from "../../assets/images/nvr_2_36.png"
+import nvr_8_64 from "../../assets/images/nvr_8_64.png"
+import nvr_4_36 from "../../assets/images/nvr_4_36.png"
+import hvr_0805N from '../../assets/images/hvr-0805N.png'
+import hvr_0805Np from '../../assets/images/hvr-0805Np.png'
+import hvr_04051 from '../../assets/images/hvr_04051.png'
+import hvr_04052 from '../../assets/images/hvr_04052.png'
+import ip_202_FPM from '../../assets/images/ip-202_FPM.png'
+import ip_202_2_8FPM from '../../assets/images/ip-202_FPM-2-8.png'
+import ip_206 from '../../assets/images/ip-206.png'
+import ip_302_FPM from '../../assets/images/IP-302 FPM (2.8) 1.png'
+import ip_302_FPM_1V from '../../assets/images/IP-302 FPM (2.8) 1V.webp'
+import ip_402_FPA_2_8 from '../../assets/images/IP-402 FPA (2.8) 1.webp'
+import ip_402_FPM_2_8 from '../../assets/images/IP-402 FPM (2.8) 1.png'
+import ip_403_VPA_2_8 from '../../assets/images/IP-403 VPA (2.8-12) 1.webp'
+import ip_pt206 from '../../assets/images/ip-pt206.jpeg'
+import poe_udl from '../../assets/images/poe-udl.webp'
+import poe_inj from '../../assets/images/PoE-инжектор (пассивный).webp'
+import poe_udl30VT from '../../assets/images/PoE-удлинитель (30Вт) 1_3.webp'
 
+
+const category = {
+    IP_VIDEO_RECORDER: {id: 1, category: "IP-Видеорегистратор", subcategory: "IP-Видеорегистратор"},
+    IP_VIDEO_RECORDER_POE: {id: 2, category: "IP-Видеорегистратор с Poe", subcategory: "IP-Видеорегистратор с PoE"},
+    AHD_VIDEO_RECORDER: {id: 3, category: "AHD Видеорегистратор", subcategory: "AHD Видеорегистратор"},
+    IP_CAMS_2MP: {id: 4, category: "IP Камеры 2 Мегапикселя", subcategory: "IP Камеры 2 Мегапикселя"},
+    IP_CAMS_3MP: {id: 5, category: "IP Камеры 3 Мегапикселя", subcategory: "IP Камеры 3 Мегапикселя"},
+    IP_CAMS_4MP: {id: 6, category: "IP Камеры 4 Мегапикселя", subcategory: "IP Камеры 4 Мегапикселя"},
+    NETWORK_EQUIPMENT: {id: 7, category: "Сетевое оборудование", subcategory: "Сетевое оборудование"},
+}
+
+const brands = {
+    AKSILIUM: {id: 1, name: 'AKSILIUM'}
+}
 // Данные товаров для каталога охранных систем
 const allProducts = [
     {
         id: 1,
-        name: 'IP-видеодомофон Hikvision',
-        category: 'Домофоны',
-        subcategory: 'IP-домофоны',
-        price: 15990,
-        oldPrice: 22990,
-        image: domofon,
+        name: 'NVR-1/10',
+        category: category.IP_VIDEO_RECORDER.category,
+        subcategory: category.IP_VIDEO_RECORDER.subcategory,
+        price: 3350,
+        image: nvr_1_10,
         rating: 4.8,
         reviews: 124,
         isNew: true,
-        inStock: true,
-        brand: 'Hikvision',
+        inStock: false,
+        brand: brands.AKSILIUM.name,
         type: 'Проводной',
         features: ['Wi-Fi', 'Сенсорный экран', 'Ночное видение'],
-        warranty: 3
+        warranty: 1
     },
     {
         id: 2,
-        name: 'IP-камера видеонаблюдения',
-        category: 'Камеры',
-        subcategory: 'IP-камеры',
-        price: 8990,
-        image: camera,
+        name: 'NVR-1/16',
+        category: category.IP_VIDEO_RECORDER.category,
+        subcategory: category.IP_VIDEO_RECORDER.subcategory,
+        price: 4425,
+        image: nvr_1_16,
         rating: 4.9,
         reviews: 87,
         isNew: true,
-        inStock: true,
-        brand: 'Dahua',
+        inStock: false,
+        brand: brands.AKSILIUM.name,
         type: 'Уличная',
         features: ['Full HD', 'ИК-подсветка', 'IP67'],
-        warranty: 3
+        warranty: 1
     },
     {
         id: 3,
-        name: 'Комплект сигнализации Ajax',
-        category: 'Сигнализации',
-        subcategory: 'Беспроводные',
-        price: 24990,
-        oldPrice: 29990,
-        image: signalization,
+        name: 'NVR-1/36',
+        category: category.IP_VIDEO_RECORDER.category,
+        subcategory: category.IP_VIDEO_RECORDER.subcategory,
+        price: 8550,
+        image: nvr_1_36,
         rating: 4.7,
         reviews: 203,
         discount: 17,
-        inStock: true,
-        brand: 'Ajax',
+        inStock: false,
+        brand: brands.AKSILIUM.name,
         type: 'Беспроводная',
         features: ['Мобильное приложение', 'Датчики движения', 'Сирена'],
-        warranty: 3
+        warranty: 2
     },
     {
         id: 4,
-        name: 'СКУД контроллер ZKTeco',
-        category: 'Контроль доступа',
-        subcategory: 'Контроллеры',
-        price: 34990,
-        image: accessControl,
+        name: 'NVR-2/36',
+        category: category.IP_VIDEO_RECORDER.category,
+        subcategory: category.IP_VIDEO_RECORDER.subcategory,
+        price: 9750,
+        image: nvr_2_36,
         rating: 4.8,
         reviews: 156,
         isNew: true,
         inStock: true,
-        brand: 'ZKTeco',
+        brand: brands.AKSILIUM.name,
         type: 'Биометрический',
         features: ['Отпечатки пальцев', 'RFID-карты', 'ПО в комплекте'],
-        warranty: 3
+        warranty: 1
     },
     {
         id: 5,
-        name: 'Пожарная сигнализация Болид',
-        category: 'Пожарная безопасность',
-        subcategory: 'Пожарные системы',
-        price: 59990,
-        oldPrice: 89990,
-        image: fireSystem,
+        name: 'NVR-4/36',
+        category: category.IP_VIDEO_RECORDER.category,
+        subcategory: category.IP_VIDEO_RECORDER.subcategory,
+        price: 20000,
+        image: nvr_4_36,
         rating: 4.6,
         reviews: 92,
         discount: 33,
         inStock: true,
-        brand: 'Болид',
+        brand: brands.AKSILIUM.name,
         type: 'Адресная',
         features: ['Датчики дыма', 'Оповещатели', 'Пульт управления'],
-        warranty: 3
+        warranty: 1
     },
     {
         id: 6,
-        name: 'Датчик движения Bosch',
-        category: 'Датчики',
-        subcategory: 'Датчики движения',
-        price: 2490,
-        image: sensor,
+        name: 'NVR-8/64',
+        category: category.IP_VIDEO_RECORDER.category,
+        subcategory: category.IP_VIDEO_RECORDER.subcategory,
+        price: 47500,
+        image: nvr_8_64,
         rating: 4.5,
         reviews: 67,
         isNew: true,
         inStock: true,
-        brand: 'Bosch',
+        brand: brands.AKSILIUM.name,
         type: 'Инфракрасный',
         features: ['Угол 180°', 'Дальность 15м', 'Иммунитет к животным'],
-        warranty: 3
+        warranty: 1
     },
     {
         id: 7,
-        name: 'Видеорегистратор 16 каналов',
-        category: 'Видеонаблюдение',
-        subcategory: 'Видеорегистраторы',
-        price: 42990,
-        image: videorecorder,
+        name: 'NVR-1/10 (4P)',
+        category: category.IP_VIDEO_RECORDER_POE.category,
+        subcategory: category.IP_VIDEO_RECORDER_POE.subcategory,
+        price: 4995,
+        image: nvr_1_10_4p,
         rating: 4.7,
         reviews: 178,
         inStock: true,
-        brand: 'Hikvision',
+        brand: brands.AKSILIUM.name,
         type: 'Сетевой',
         features: ['16 каналов', '4K запись', 'Жесткий диск 4TB'],
-        warranty: 3
+        warranty: 7
     },
     {
         id: 8,
-        name: 'Монитор видеонаблюдения',
-        category: 'Видеонаблюдение',
-        subcategory: 'Мониторы',
-        price: 15990,
-        image: monitor,
+        name: 'NVR-1/16 (8P)',
+        category: category.IP_VIDEO_RECORDER_POE.category,
+        subcategory: category.IP_VIDEO_RECORDER_POE.subcategory,
+        price: 8525,
+        image: nvr_1_16_8p,
         rating: 4.9,
         reviews: 245,
         isNew: true,
         inStock: true,
-        brand: 'Dahua',
+        brand: brands.AKSILIUM.name,
         type: 'LED',
         features: ['24 дюйма', 'Full HD', 'VESA крепление'],
-        warranty: 3
+        warranty: 2
     },
     {
         id: 9,
-        name: 'Блок питания 12В',
-        category: 'Комплектующие',
-        subcategory: 'Блоки питания',
-        price: 1990,
-        image: powerSupply,
+        name: 'HVR-0405 (аудио 1 вх.1 вых.)',
+        category: category.AHD_VIDEO_RECORDER.category,
+        subcategory: category.AHD_VIDEO_RECORDER.subcategory,
+        price: 4730,
+        image: hvr_04051,
         rating: 4.4,
         reviews: 43,
         inStock: true,
-        brand: 'GSN',
+        brand: brands.AKSILIUM.name,
         type: 'Импульсный',
         features: ['12В 5А', 'Защита от КЗ', 'Индикация'],
-        warranty: 3
+        warranty: 5
     },
     {
         id: 10,
-        name: 'Умный замок Samsung',
-        category: 'Контроль доступа',
-        subcategory: 'Умные замки',
-        price: 25990,
+        name: 'HVR-0405',
+        category: category.AHD_VIDEO_RECORDER.category,
+        subcategory: category.AHD_VIDEO_RECORDER.subcategory,
+        price: 5803,
         oldPrice: 32990,
-        image: smartLock,
+        image: hvr_04052,
         rating: 4.8,
         reviews: 112,
         discount: 20,
         inStock: true,
-        brand: 'Samsung',
+        brand: brands.AKSILIUM.name,
         type: 'Электронный',
         features: ['Bluetooth', 'Пин-код', 'RFID'],
-        warranty: 3
+        warranty: 4
     },
     {
         id: 11,
-        name: 'Кабель КВК-П 2х0.75',
-        category: 'Комплектующие',
-        subcategory: 'Кабели',
-        price: 350,
-        image: cable,
+        name: 'HVR-0805Np',
+        category: category.AHD_VIDEO_RECORDER.category,
+        subcategory: category.AHD_VIDEO_RECORDER.subcategory,
+        price: 4700,
+        image: hvr_0805Np,
         rating: 4.6,
         reviews: 89,
         inStock: true,
-        brand: 'Спецкабель',
+        brand: brands.AKSILIUM.name,
         type: 'Комбинированный',
         features: ['2 жилы', 'Коаксиал', '100м бухта'],
-        warranty: 3
+        warranty: 9
     },
     {
         id: 12,
-        name: 'Переговорное устройство',
-        category: 'Домофоны',
-        subcategory: 'Аудиодомофоны',
-        price: 3490,
-        image: intercom,
+        name: 'HVR-1605N',
+        category: category.AHD_VIDEO_RECORDER.category,
+        subcategory: category.AHD_VIDEO_RECORDER.subcategory,
+        price: 14900,
+        image: hvr_0805N,
         rating: 4.7,
-        reviews: 134,
+        reviews: 154,
         isNew: true,
         inStock: true,
-        brand: 'VIZIT',
+        brand: brands.AKSILIUM.name,
+        type: 'Проводное',
+        features: ['Громкая связь', 'Регулировка звука', 'Простота установки'],
+        warranty: 7
+    },
+
+    {
+        id: 13,
+        name: 'IP-202 FPM (3.6) 1H',
+        category: category.IP_CAMS_2MP.category,
+        subcategory: category.IP_CAMS_2MP.subcategory,
+        price: 1463,
+        image: ip_202_FPM,
+        rating: 4.9,
+        reviews: 182,
+        isNew: true,
+        inStock: true,
+        brand: brands.AKSILIUM.name,
+        type: 'Проводное',
+        features: ['Громкая связь', 'Регулировка звука', 'Простота установки'],
+        warranty: 8
+    },
+
+    {
+        id: 14,
+        name: 'IP-202 FPM (2.8) 1H',
+        category: category.IP_CAMS_2MP.category,
+        subcategory: category.IP_CAMS_2MP.subcategory,
+        price: 1463,
+        image: ip_202_2_8FPM,
+        rating: 4.2,
+        reviews: 120,
+        isNew: true,
+        inStock: true,
+        brand: brands.AKSILIUM.name,
+        type: 'Проводное',
+        features: ['Громкая связь', 'Регулировка звука', 'Простота установки'],
+        warranty: 1
+    },
+
+    {
+        id: 15,
+        name: 'IP-206',
+        category: category.IP_CAMS_2MP.category,
+        subcategory: category.IP_CAMS_2MP.subcategory,
+        price: 1320,
+        image: ip_206,
+        rating: 4.6,
+        reviews: 199,
+        isNew: true,
+        inStock: true,
+        brand: brands.AKSILIUM.name,
+        type: 'Проводное',
+        features: ['Громкая связь', 'Регулировка звука', 'Простота установки'],
+        warranty: 2
+    },
+
+    {
+        id: 16,
+        name: 'IP-PT206',
+        category: category.IP_CAMS_2MP.category,
+        subcategory: category.IP_CAMS_2MP.subcategory,
+        price: 1725,
+        image: ip_pt206,
+        rating: 4.5,
+        reviews: 101,
+        isNew: true,
+        inStock: true,
+        brand: brands.AKSILIUM.name,
         type: 'Проводное',
         features: ['Громкая связь', 'Регулировка звука', 'Простота установки'],
         warranty: 3
-    }
+    },
+
+    {
+        id: 17,
+        name: 'IP-302 FPM (2.8) 1',
+        category: category.IP_CAMS_3MP.category,
+        subcategory: category.IP_CAMS_3MP.subcategory,
+        price: 14900,
+        image: ip_302_FPM,
+        rating: 4.3,
+        reviews: 160,
+        isNew: true,
+        inStock: true,
+        brand: brands.AKSILIUM.name,
+        type: 'Проводное',
+        features: ['Громкая связь', 'Регулировка звука', 'Простота установки'],
+        warranty: 4
+    },
+
+    {
+        id: 18,
+        name: 'IP-302 FPM (2.8) 1V',
+        category: category.IP_CAMS_3MP.category,
+        subcategory: category.IP_CAMS_3MP.subcategory,
+        price: 2400,
+        image: ip_302_FPM_1V,
+        rating: 4.4,
+        reviews: 193,
+        isNew: true,
+        inStock: true,
+        brand: brands.AKSILIUM.name,
+        type: 'Проводное',
+        features: ['Громкая связь', 'Регулировка звука', 'Простота установки'],
+        warranty: 5
+    },
+
+    {
+        id: 19,
+        name: 'IP-402 FPM (2.8) 1',
+        category: category.IP_CAMS_4MP.category,
+        subcategory: category.IP_CAMS_4MP.subcategory,
+        price: 2250,
+        image: ip_402_FPM_2_8,
+        rating: 4.8,
+        reviews: 184,
+        isNew: true,
+        inStock: true,
+        brand: brands.AKSILIUM.name,
+        type: 'Проводное',
+        features: ['Громкая связь', 'Регулировка звука', 'Простота установки'],
+        warranty: 2
+    },
+
+    {
+        id: 20,
+        name: 'IP-402 FPA (2.8) 1',
+        category: category.IP_CAMS_4MP.category,
+        subcategory: category.IP_CAMS_4MP.subcategory,
+        price: 3300,
+        image: ip_402_FPA_2_8,
+        rating: 4.6,
+        reviews: 148,
+        isNew: true,
+        inStock: true,
+        brand: brands.AKSILIUM.name,
+        type: 'Проводное',
+        features: ['Громкая связь', 'Регулировка звука', 'Простота установки'],
+        warranty: 9
+    },
+
+    {
+        id: 21,
+        name: 'IP-403 VPA (2.8-12) 1',
+        category: category.IP_CAMS_4MP.category,
+        subcategory: category.IP_CAMS_4MP.subcategory,
+        price: 5385,
+        image: ip_403_VPA_2_8,
+        rating: 4.1,
+        reviews: 165,
+        isNew: true,
+        inStock: true,
+        brand: brands.AKSILIUM.name,
+        type: 'Проводное',
+        features: ['Громкая связь', 'Регулировка звука', 'Простота установки'],
+        warranty: 8
+    },
+
+    {
+        id: 22,
+        name: 'PoE-удлинитель',
+        category: category.NETWORK_EQUIPMENT.category,
+        subcategory: category.NETWORK_EQUIPMENT.subcategory,
+        price: 1010,
+        image: poe_udl,
+        rating: 4.2,
+        reviews: 124,
+        isNew: true,
+        inStock: true,
+        brand: brands.AKSILIUM.name,
+        type: 'Проводное',
+        features: ['Громкая связь', 'Регулировка звука', 'Простота установки'],
+        warranty: 6
+    },
+
+    {
+        id: 23,
+        name: 'PoE-удлинитель (30Вт) 1/3',
+        category: category.NETWORK_EQUIPMENT.category,
+        subcategory: category.NETWORK_EQUIPMENT.subcategory,
+        price: 750,
+        image: poe_udl30VT,
+        rating: 4.1,
+        reviews: 122,
+        isNew: true,
+        inStock: true,
+        brand: brands.AKSILIUM.name,
+        type: 'Проводное',
+        features: ['Громкая связь', 'Регулировка звука', 'Простота установки'],
+        warranty: 4
+    },
+
+    {
+        id: 24,
+        name: 'PoE-инжектор (пассивный)',
+        category: category.NETWORK_EQUIPMENT.category,
+        subcategory: category.NETWORK_EQUIPMENT.subcategory,
+        price: 668,
+        image: poe_inj,
+        rating: 4.4,
+        reviews: 122,
+        isNew: true,
+        inStock: true,
+        brand: brands.AKSILIUM.name,
+        type: 'Проводное',
+        features: ['Громкая связь', 'Регулировка звука', 'Простота установки'],
+        warranty: 2
+    },
 ];
 
 const categories = [
     { id: 'all', name: 'Все товары' },
-    { id: 'Домофоны', name: 'Домофоны' },
-    { id: 'Камеры', name: 'Камеры' },
-    { id: 'Видеонаблюдение', name: 'Видеонаблюдение' },
-    { id: 'Сигнализации', name: 'Сигнализации' },
-    { id: 'Контроль доступа', name: 'Контроль доступа' },
-    { id: 'Пожарная безопасность', name: 'Пожарная безопасность' },
-    { id: 'Датчики', name: 'Датчики' },
-    { id: 'Комплектующие', name: 'Комплектующие' }
+    { id: category.IP_VIDEO_RECORDER.category, name: category.IP_VIDEO_RECORDER.category },
+    { id: category.IP_VIDEO_RECORDER_POE.category, name: category.IP_VIDEO_RECORDER_POE.category },
+    { id: category.AHD_VIDEO_RECORDER.category, name: category.AHD_VIDEO_RECORDER.category },
+    { id: category.IP_CAMS_2MP.category, name: category.IP_CAMS_2MP.category },
+    { id: category.IP_CAMS_3MP.category, name: category.IP_CAMS_3MP.category },
+    { id: category.IP_CAMS_4MP.category, name: category.IP_CAMS_4MP.category },
+    { id: category.NETWORK_EQUIPMENT.category, name: category.NETWORK_EQUIPMENT.category },
 ];
 
 const sortOptions = [
